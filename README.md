@@ -19,7 +19,9 @@ After that, we can do a ```mvn generate-sources``` on the root pom.xml.
 You can either start the application through your IDE or run ```mvn package``` and run it as a jar.
 
 ## How it works
-Only authorized users with the role "user" can call our API application by having ```Authorization: Bearer + access_token``` on the request headers. Our applications will validate the access token from the public JWK provided by Keycloak. After creating a User on keycloak, the user can authorize Keycloak to give access to our banking-application by generating an access token from Keycloak. Using the newly generated access token, we can make calls to our banking-application. Access tokens are short-lived by default but can be newly generated with a refresh token.
+Only authorized users with the role "user" can call our API application by having ```Authorization: Bearer + access_token``` on the request headers. Our applications will validate the access token from the public JWK provided by Keycloak. After creating a User on keycloak, the user can authorize Keycloak to give access to our banking-application by generating an access token from Keycloak. Using the newly generated access token, we can make calls to our banking-application.
+
+Access tokens are short-lived by default but can be newly generated with a refresh token.
 
 ## Postman
 We can import postman collection located at "postman/" directory. This has all our application endpoints and token endpoints from Keycloak.
