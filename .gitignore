@@ -1,6 +1,6 @@
 target
 
-src/gen
+*/src/gen
 
 # Eclipse
 .settings
