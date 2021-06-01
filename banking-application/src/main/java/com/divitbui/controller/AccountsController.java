@@ -54,7 +54,7 @@ public class AccountsController {
 
     @SecurityRequirement(name = "Authorization")
     @PostMapping(value = "{accountId}/transfer", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> transfer(@Valid @RequestBody final TransferRequest transferRequest,
+    public ResponseEntity<Void> transfer(@Valid @RequestBody final TransferRequest transferRequest,
                                                      @PathVariable final UUID accountId,
                                                      final KeycloakAuthenticationToken keyCloakAuthToken) throws AccountNotFoundException, TransferFailedException {
         final AccessToken token = keyCloakAuthToken.getAccount().getKeycloakSecurityContext().getToken();
