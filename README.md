@@ -32,7 +32,6 @@ Since this is all API based, we can use our Postman to run our End-to-End testin
 Each endpoint will have a Test script in them.
 
 ![banking-app-postman-ss](https://user-images.githubusercontent.com/26686429/120259992-e0f08080-c28c-11eb-90d1-f22511e1e07e.png)
-![end-to-end-test](https://user-images.githubusercontent.com/26686429/120259995-e221ad80-c28c-11eb-9149-53aaf812921a.png)
 
 ### Limitations
 - Performance will likely to suffer from huge traffic due to locking of the database for transfers (Proposal: have read replicas of DB).
