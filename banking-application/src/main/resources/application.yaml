@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+keycloak:
+  auth-server-url: "http://localhost:8180/auth"
+  realm: "banking-app"
+  resource: "banking-api"
+  public-client: true
+  principal-attribute: "preferred_username"
+  
+spring:
+  jackson:
+    default-property-inclusion: NON_NULL
+    serialization:
+      write-dates-as-timestamps: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/banking
+    username: root
+    password: root
+# Logging
+logging.level:
+  com.divitbui: DEBUG
