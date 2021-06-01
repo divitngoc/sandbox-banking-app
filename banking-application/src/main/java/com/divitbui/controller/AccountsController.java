@@ -27,8 +27,12 @@ import com.divitbui.service.AccountService;
 import com.divitbui.service.TransactionService;
 import com.divitbui.service.TransferService;
 
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import lombok.RequiredArgsConstructor;
 
+@SecurityScheme(type = SecuritySchemeType.HTTP, scheme = "bearer", name = "Authorization")
 @RestController
 @RequestMapping(value = "/accounts", produces = MediaType.APPLICATION_JSON_VALUE)
 @RequiredArgsConstructor
@@ -38,6 +42,7 @@ public class AccountsController {
     private final TransactionService transactionService;
     private final TransferService transferService;
 
+    @SecurityRequirement(name = "Authorization")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<AccountResponse> createAccount(final KeycloakAuthenticationToken keyCloakAuthToken,
                                                          @RequestBody final AccountRequest request) {
@@ -47,6 +52,7 @@ public class AccountsController {
                              .body(response);
     }
 
+    @SecurityRequirement(name = "Authorization")
     @PostMapping(value = "{accountId}/transfer", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> transfer(@Valid @RequestBody final TransferRequest transferRequest,
                                                      @PathVariable final UUID accountId,
@@ -56,7 +62,7 @@ public class AccountsController {
         return ResponseEntity.noContent().build();
     }
 
-    
+    @SecurityRequirement(name = "Authorization")
     @GetMapping
     public ResponseEntity<AccountsResponse> getAccounts(final KeycloakAuthenticationToken keyCloakAuthToken) {
         final AccessToken token = keyCloakAuthToken.getAccount().getKeycloakSecurityContext().getToken();
@@ -64,6 +70,7 @@ public class AccountsController {
         return ResponseEntity.ok(response);
     }
 
+    @SecurityRequirement(name = "Authorization")
     @GetMapping("/{accountId}")
     public ResponseEntity<AccountResponse> getAccount(@PathVariable final UUID accountId, final KeycloakAuthenticationToken keyCloakAuthToken) throws AccountNotFoundException {
         final AccessToken token = keyCloakAuthToken.getAccount().getKeycloakSecurityContext().getToken();
@@ -75,6 +82,7 @@ public class AccountsController {
                                                .orElseThrow(() -> new AccountNotFoundException("Account ID " + accountId + " not found")));
     }
 
+    @SecurityRequirement(name = "Authorization")
     @GetMapping("/{accountId}/transactions")
     public ResponseEntity<TransactionsResponse> getTransactionsByAccountId(final KeycloakAuthenticationToken keyCloakAuthToken,
                                                                            @PathVariable final UUID accountId) {

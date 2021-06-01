@@ -10,10 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.divitbui.model.response.UserResponse;
 
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
+
+@SecurityScheme(type = SecuritySchemeType.HTTP, scheme = "bearer", name = "Authorization")
 @RestController
 @RequestMapping(value = "/identity", produces = MediaType.APPLICATION_JSON_VALUE)
 public class IdentityController {
 
+    @SecurityRequirement(name = "Authorization")
     @GetMapping
     public ResponseEntity<UserResponse> getIdentity(final KeycloakAuthenticationToken keyCloakAuthToken) {
         final AccessToken token = keyCloakAuthToken.getAccount().getKeycloakSecurityContext().getToken();
