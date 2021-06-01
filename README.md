@@ -29,3 +29,4 @@ Since this is all API based, we can use our Postman to run our End-to-End testin
 
 ### Limitations
 - Performance will likely to suffer from huge traffic due to locking of the database for transfers (Proposal: have read replicas of DB).
+- Authorizing via password is not great and is a security risk. (Proposal: Redirecting them directly to Keycloak site, and then have Keycloak to redirect to us with code after the user has authorized. Our application can then exchange it for an access-token which is much more secured.)
