@@ -5,6 +5,7 @@
 	<groupId>com.divitbui</groupId>
 	<artifactId>banking-application-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
 	<modules>
 		<module>banking-application</module>
