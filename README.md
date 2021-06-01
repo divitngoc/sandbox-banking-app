@@ -29,6 +29,8 @@ We can import postman collection located at "postman/" directory. This has all o
 ## End to End tests
 Since this is all API based, we can use our Postman to run our End-to-End testing after starting up our Java banking-application. To run tests from the Postman, click the 3 dots from our imported collection ("Banking Application e2e API"), click on "Run collection" from the dropdown and then click Run Banking Application e2e API.
 
+Each endpoint will have a Test script in them.
+
 ![banking-app-postman-ss](https://user-images.githubusercontent.com/26686429/120259992-e0f08080-c28c-11eb-90d1-f22511e1e07e.png)
 ![end-to-end-test](https://user-images.githubusercontent.com/26686429/120259995-e221ad80-c28c-11eb-9149-53aaf812921a.png)
 
