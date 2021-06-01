@@ -29,6 +29,9 @@ We can import postman collection located at "postman/" directory. This has all o
 ## End to End tests
 Since this is all API based, we can use our Postman to run our End-to-End testing after starting up our Java banking-application. To run tests from the Postman, click the 3 dots from our imported collection ("Banking Application e2e API"), click on "Run collection" from the dropdown and then click Run Banking Application e2e API.
 
+![banking-app-postman-ss](https://user-images.githubusercontent.com/26686429/120259992-e0f08080-c28c-11eb-90d1-f22511e1e07e.png)
+![end-to-end-test](https://user-images.githubusercontent.com/26686429/120259995-e221ad80-c28c-11eb-9149-53aaf812921a.png)
+
 ### Limitations
 - Performance will likely to suffer from huge traffic due to locking of the database for transfers (Proposal: have read replicas of DB).
 - Authorizing via password is not great and is a security risk. (Proposal: Redirecting them directly to Keycloak site, and then have Keycloak to redirect to us with code after the user has authorized. Our application can then exchange it for an access-token which is much more secured.)
