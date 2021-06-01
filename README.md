@@ -23,6 +23,10 @@ Only authorized users with the role "user" can call our API application by havin
 
 Access tokens are short-lived by default but can be newly generated with a refresh token.
 
+## Docs
+- JSON: http://localhost:8080/v3/api-docs/
+- UI: http://localhost:8080/swagger-ui.html
+
 ## Postman
 We can import postman collection located at "postman/" directory. This has all our application endpoints and token endpoints from Keycloak.
 
@@ -33,6 +37,6 @@ Each endpoint will have a Test script in them.
 
 ![banking-app-postman-ss](https://user-images.githubusercontent.com/26686429/120259992-e0f08080-c28c-11eb-90d1-f22511e1e07e.png)
 
-### Limitations
+## Limitations
 - Performance will likely to suffer from huge traffic due to locking of the database for transfers (Proposal: have read replicas of DB).
 - Authorizing via password is not great and is a security risk. (Proposal: Redirecting them directly to Keycloak site, and then have Keycloak to redirect to us with code after the user has authorized. Our application can then exchange it for an access-token which is much more secured.)
