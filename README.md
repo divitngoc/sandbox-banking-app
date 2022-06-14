@@ -1,6 +1,6 @@
 # sandbox-banking-app
 
-This Sandbox Banking project allows creation of Users, Accounts, Balances and internal transfer of funds.
+This Sandbox Banking project using Spring allows creation of Users, Accounts, Balances and internal transfer of funds.
 Every transfers will generate a transaction on both the payee and payer accounts.
 
 ## Diagram
